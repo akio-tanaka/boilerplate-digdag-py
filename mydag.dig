@@ -1,0 +1,17 @@
+timezone: Asia/Tokyo
+
+schedule:
+  minutes_interval>: 1
+
+_export:
+  target_folder_to_poll: 'C:\digdag\your_project'
+
++setup:
+  echo>: start polling folder ${session_time}
+
++polling:
+  py>: mypy.poll.do
+  folderpath: ${target_folder_to_poll}
+
++teardown:
+  echo>: done
